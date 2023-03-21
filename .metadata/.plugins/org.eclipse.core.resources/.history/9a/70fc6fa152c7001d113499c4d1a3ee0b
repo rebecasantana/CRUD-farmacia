@@ -1,0 +1,17 @@
+package com.generation.farmacia.controller;
+
+@RestController
+@RequestMapping("/produtos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+public class ProdutoController {
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
+	@GetMapping
+	public ResponseEntity<List<Produto>> getAll(){
+		return ResponseEntity.ok(produtoRepository.findAll());
+	}
